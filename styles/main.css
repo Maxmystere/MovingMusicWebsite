@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F7F7F7;
+}
+
+main {
+    margin: 0 auto;
+}
+
+.longword {
+    font-size: 3rem;
+}
+
+.logoContainer {
+    margin-top: 10vh;
+}
+
+.logoLinksContainer {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    width: fit-content;
+    z-index: 5;
+}
+
+@media only screen and (max-device-width: 768px) {
+    .logoLinksContainer {
+        display: flex;
+        position: fixed;
+        padding: 10px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 5;
+        background-color: #F7F7F7;
+    }
+}
+
+.logoLinksContainer img {
+    margin: 5px;
+}
+
+/*
+.container {
+    height: auto;
+}
+*/
+
+.row {
+    margin-bottom: 30px;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+.imageLogo {
+    width: 100%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.textLogo {
+    font-family: 'Walkway Bold', arial;
+    line-height: 75%;
+    font-size: 500%;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+img {
+    display: block;
+}
+
+.middle {
+    background-image: linear-gradient(#2c3e50ee, #2c3e50ee), url("../images/img.png");
+}
+
+.middle p, li {
+    color: #ecf0f1;
+}
+
+.middle h2 {
+    color: #3498db;
+}
+
+.gallery {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+}

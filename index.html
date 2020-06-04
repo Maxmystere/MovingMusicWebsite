@@ -8,10 +8,20 @@
     <link rel="icon" href="images/favicon.ico" />
     <title>MovingMusiCar</title>
     <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0">
+    <meta name="description" content="La musique où vous voulez quand vous voulez !"/>
+    <meta name="referrer" content="origin">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://allfont.net/allfont.css?fonts=walkway-bold" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147437778-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-147437778-1');
+    </script>
     <script type='text/javascript'>
         document.write("<link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel='stylesheet'>");
     </script>
@@ -31,10 +41,10 @@
     <main class="container">
         <div class="row logoContainer">
             <div class="col-sm-6">
-                <div class="" data-aos="fade-up-right" data-aos-duration="2000"><img src="images/logo.png" alt=""
+                <div class="" data-aos="fade-up-right" data-aos-duration="2000"><img src="images/logo.png" alt="MovingMusiCar"
                         class="imageLogo"></div>
             </div>
-            <div class="col-sm-6" data-aos="fade-up-left" data-aos-duration="2000"><img src="images/img.png" alt=""
+            <div class="col-sm-6" data-aos="fade-up-left" data-aos-duration="2000"><img src="images/musicar.webp" alt="MovingMusic"
                     class="img-fluid"></div>
         </div>
     </main>
@@ -104,8 +114,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         var request = new XMLHttpRequest();
-        request.open('GET', 'https://www.googleapis.com/youtube/v3/search?channelId=UCkbrbEstYEtIPLmnIqDTLjg&key=AIzaSyBXGm9nH1B4dCA_ZcwP2lzXb-tqfQ_tRV0&part=snippet,id&order=date&maxResults=10&type=video', true);
+        request.open('GET', 'https://www.googleapis.com/youtube/v3/search?channelId=UCkbrbEstYEtIPLmnIqDTLjg&key=AIzaSyAdDpCxpTWXR02QFV2qcm1g8lV-R88kTA4&part=snippet,id&order=date&maxResults=10&type=video', true);
 
+        request.setRequestHeader("Content-Type","application/json");
         var playersdiv = document.getElementById('videoplayers');
         request.onreadystatechange = function () {
             if (this.readyState === 4) {
@@ -113,10 +124,11 @@
                     var data = JSON.parse(this.responseText);
 
                     data['items'].forEach(element => {
-                        playersdiv.insertAdjacentHTML('beforeend', "<iframe type='text/html' height='300' src='https://www.youtube.com/embed/" + element['id']['videoId'] + "'frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
+                        playersdiv.insertAdjacentHTML('beforeend', "<iframe type='text/html' height='300' src='https://www.youtube.com/embed/" + element['id']['videoId'] + " 'frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
                     });
                 } else {
-                    console.log("Error");
+                    console.log(JSON.parse(this.responseText)['error']);
+                    playersdiv.insertAdjacentHTML('beforeend', "<iframe type='text/html' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' width='640' height='400' src='https://www.youtube.com/embed/Dx_OzCP_tR8 'frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
                 }
             }
         };

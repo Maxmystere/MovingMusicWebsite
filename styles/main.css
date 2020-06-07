@@ -16,6 +16,10 @@ main {
     margin-top: 10vh;
 }
 
+.container .row iframe {
+    margin-right: 5px;
+}
+
 .logoLinksContainer {
     position: fixed;
     top: 40px;

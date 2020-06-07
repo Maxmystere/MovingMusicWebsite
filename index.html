@@ -23,7 +23,10 @@
         gtag('config', 'UA-147437778-1');
     </script>
     <script type='text/javascript'>
-        document.write("<link href='https://unpkg.com/aos@2.3.1/dist/aos.css' rel='stylesheet'>");
+        aoscss = document.createElement('link');
+        aoscss.href='https://unpkg.com/aos@2.3.1/dist/aos.css';
+        aoscss.rel='stylesheet';
+        document.getElementsByTagName('head')[0].appendChild(aoscss);
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
@@ -99,30 +102,30 @@
     <div class="container">
         <h4 data-aos="fade-right">Galerie Images</h4>
         <div class="row gallery">
-            <iframe src="https://instagram.com/p/CAOM3Oipr_2/embed" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-            <iframe src="https://instagram.com/p/CAD3IoPHPLN/embed" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-            <iframe src="https://instagram.com/p/B4DYogHoyjf/embed" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-            <iframe src="https://instagram.com/p/BxfQ9b5oAxf/embed" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
-            <iframe src="https://instagram.com/p/BxfQUbFoFCZ/embed" height="450" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            <iframe sandbox src="https://instagram.com/p/CAOM3Oipr_2/embed" height="460" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            <iframe sandbox src="https://instagram.com/p/CAD3IoPHPLN/embed" height="460" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            <iframe sandbox src="https://instagram.com/p/B4DYogHoyjf/embed" height="460" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            <iframe sandbox src="https://instagram.com/p/BxfQ9b5oAxf/embed" height="460" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+            <iframe sandbox src="https://instagram.com/p/BxfQUbFoFCZ/embed" height="460" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
         </div>
     </div>
     <div class="container">
         <h4 data-aos="fade-right">Galerie Videos</h4>
         <div class="row gallery" id="videoplayers">
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/Dx_OzCP_tR8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" style="margin-right: 5px;"></iframe></noscript>
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/wmxDJEQ9PWM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" style="margin-right: 5px;"></iframe></noscript>
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/jtTjZlwkn6k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" style="margin-right: 5px;"></iframe></noscript>
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/ZTgTVM0qgnc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" style="margin-right: 5px;"></iframe></noscript>
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/LrpJdRA2d6Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" style="margin-right: 5px;"></iframe></noscript>
+            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/Dx_OzCP_tR8" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/wmxDJEQ9PWM" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/jtTjZlwkn6k" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/ZTgTVM0qgnc" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/LrpJdRA2d6Y" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
         </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        window.onload = function() {
         var request = new XMLHttpRequest();
         request.open('GET', 'https://www.googleapis.com/youtube/v3/search?part=id&channelId=UCkbrbEstYEtIPLmnIqDTLjg&maxResults=10&order=date&type=video&videoEmbeddable=true&key=AIzaSyAdDpCxpTWXR02QFV2qcm1g8lV-R88kTA4', true);
 
         request.setRequestHeader("Content-Type","application/json");
-        var playersdiv = document.getElementById('videoplayers');
         request.onreadystatechange = function () {
             var videosList = [];
 
@@ -139,13 +142,15 @@
                 }
             }
 
+            var playersdiv = document.getElementById('videoplayers');
             videosList.forEach(elem => {
-                playersdiv.insertAdjacentHTML('beforeend', "<iframe type='text/html' height='200' src='https://www.youtube.com/embed/" + elem + "' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='allowfullscreen' style='margin-right: 5px;'></iframe>");
+                playersdiv.insertAdjacentHTML('beforeend', "<iframe type='text/html' height='200' src='https://www.youtube.com/embed/" + elem + "' frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
             });
         };
 
         request.send();
         request = null;
+        }
 
         AOS.init();
     </script>

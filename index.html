@@ -112,11 +112,12 @@
     <div class="container">
         <h4 data-aos="fade-right">Galerie Videos</h4>
         <div class="row gallery" id="videoplayers">
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/Dx_OzCP_tR8" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/wmxDJEQ9PWM" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/jtTjZlwkn6k" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/ZTgTVM0qgnc" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
-            <noscript><iframe type="text/html" height="200" src="https://www.youtube.com/embed/LrpJdRA2d6Y" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <iframe height="200" src="https://drive.google.com/file/d/1QDUZQwuJzSS7VXxrdz-XA8uiWnu0H64s/preview" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+            <noscript><iframe height="200" src="https://www.youtube.com/embed/Dx_OzCP_tR8" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <noscript><iframe height="200" src="https://www.youtube.com/embed/wmxDJEQ9PWM" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <noscript><iframe height="200" src="https://www.youtube.com/embed/jtTjZlwkn6k" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <noscript><iframe height="200" src="https://www.youtube.com/embed/ZTgTVM0qgnc" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
+            <noscript><iframe height="200" src="https://www.youtube.com/embed/LrpJdRA2d6Y" frameborder="0" allowfullscreen="allowfullscreen"></iframe></noscript>
         </div>
     </div>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -144,7 +145,7 @@
 
             var playersdiv = document.getElementById('videoplayers');
             videosList.forEach(elem => {
-                playersdiv.insertAdjacentHTML('beforeend', "<iframe type='text/html' height='200' src='https://www.youtube.com/embed/" + elem + "' frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
+                playersdiv.insertAdjacentHTML('beforeend', "<iframe height='200' src='https://www.youtube.com/embed/" + elem + "' frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
             });
         };
 

@@ -61,8 +61,6 @@ main {
 
 .imageLogo {
     width: 100%;
-    margin-top: 10%;
-    margin-bottom: 10%;
 }
 
 .textLogo {
@@ -89,7 +87,38 @@ img {
     color: #3498db;
 }
 
+.row.bottom {
+    margin-bottom: 0;
+}
+
+.bottom {
+    background-image: linear-gradient(#2c3e50ee, #2c3e50ee), url("../images/musicar.webp");
+}
+
+.bottom p, li {
+    color: #ecf0f1;
+}
+
+.bottom h2 {
+    color: #3498db;
+}
+
 .gallery {
     flex-wrap: nowrap;
     overflow-x: scroll;
+}
+
+.contact {
+    margin-left: 1px;
+    font-weight: bolder;
+    font-size: large;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+th, td {
+    padding: unset;
+    text-align: unset;
+    vertical-align: unset;
+    border-radius: unset;
 }

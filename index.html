@@ -167,7 +167,7 @@
 
             var playersdiv = document.getElementById('videoplayers');
             videosList.forEach(elem => {
-                playersdiv.insertAdjacentHTML('beforeend', "<iframe height='200' src='https://www.youtube.com/embed/" + elem + "' frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
+                playersdiv.insertAdjacentHTML('beforeend', "<iframe height='200' src='https://www.youtube.com/embed/" + elem + "&autoplay=0' frameborder='0' allowfullscreen='allowfullscreen'></iframe>");
             });
         };
 

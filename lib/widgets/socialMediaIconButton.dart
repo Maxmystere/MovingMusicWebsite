@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaIconButton extends StatelessWidget {
   const SocialMediaIconButton({
@@ -7,19 +8,23 @@ class SocialMediaIconButton extends StatelessWidget {
     required this.url,
   });
 
-  final IconData icon;
-  final String url;
+  final Widget icon;
+  final Uri url;
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      padding: EdgeInsets.zero,
-      highlightColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      icon: Icon(icon, size: 42,),
-      onPressed: () {
-        print('Opening $url');
-      },
+    return SizedBox(
+      height: 42,
+      width: 42,
+      child: IconButton(
+        padding: EdgeInsets.zero,
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        icon: icon,
+        onPressed: () {
+          launchUrl(url);
+        },
+      ),
     );
   }
 }

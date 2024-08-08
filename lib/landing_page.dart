@@ -54,65 +54,64 @@ class _LandingPageState extends State<LandingPage> {
         height: 350,
         child: Row(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(child: Image.asset(AppAssets.logo)),
-                const Text(
-                  'La musique où vous voulez quand vous voulez',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+            SizedBox(
+              width: 300,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(child: SvgPicture.asset(AppAssets.logoSvg)),
+                  const Text(
+                    'La musique où vous voulez quand vous voulez',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                const Gap(16),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      const TextSpan(
-                        text: 'Email: ',
-                        style: TextStyle(fontWeight: FontWeight.bold,),
-                      ),
-                      TextSpan(
-                        text: 'movingmusicar@gmail.com',
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
+                  const Gap(16),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        const TextSpan(
+                          text: 'Email: ',
+                          style: TextStyle(fontWeight: FontWeight.bold,),
                         ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                          /// TODO: Implement email sending
-                            launchUrl(Uri.parse('mailto:movingmusicar@gmail.com'));
-                          },
-                      ),
-                    ],
-                  ),
-                ),
-                const Gap(8),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      const TextSpan(
-                        text: 'tel: ',
-                        style: TextStyle(fontWeight: FontWeight.bold,),
-                      ),
-                      TextSpan(
-                        text: '+33611375721',
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
+                        TextSpan(
+                          text: 'movingmusicar@gmail.com',
+                          style: const TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              launchUrl(Uri.parse('mailto:movingmusicar@gmail.com'));
+                            },
                         ),
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            /// TODO: Implement calling
-                            launchUrl(Uri.parse('tel:+33611375721'));
-                          },
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                  const Gap(8),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        const TextSpan(
+                          text: 'tel: ',
+                          style: TextStyle(fontWeight: FontWeight.bold,),
+                        ),
+                        TextSpan(
+                          text: '+33611375721',
+                          style: const TextStyle(
+                            color: Colors.blue,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              launchUrl(Uri.parse('tel:+33611375721'));
+                            },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
             const Spacer(),
             Image.asset(AppAssets.musicar),
